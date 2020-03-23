@@ -1,0 +1,23 @@
+<?php
+return [
+    ''=>[
+        'controller'=>'main',
+        'action'=>'index',
+    ],
+    'file'=>[
+        'controller'=>'file',
+        'action'=>'file',
+    ],
+    'user'=>[
+        'controller'=>'user',
+        'action'=>'user',
+    ],
+    'account/login'=>[
+        'controller'=>'account',
+        'action'=>'login',
+    ],
+    'account/register'=>[
+        'controller'=>'account',
+        'action'=>'register',
+    ],
+];
