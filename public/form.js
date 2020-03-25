@@ -35,8 +35,9 @@ $(document).ready(function() {
                 contentType:false,
                 processData:false,
                 success: function(msg){
-                    console.log(msg);
-                    console.log('ура');
+                    if(msg=='norm'){
+                        alert('Зарегестрировались');
+                    }
                 },
                 error: function(response) {
                     console.log(response);
@@ -45,4 +46,30 @@ $(document).ready(function() {
             });
         }
     });
+
+    $('#auto_form').submit(function(e) {
+        var name = $('.regName').val();
+        var pass = $('.regPass').val();
+        e.preventDefault();
+        if(validName() == true && validPass() == true){
+            $.ajax({
+                type: "POST",
+                url: "../public/authorization.php",
+                data: $('#auto_form').serialize(),
+                success: function(msg){
+                    console.log(msg);
+                    if(msg=='norm'){
+                        alert('Вход выполнен');
+                    }else{
+                        alert('Вход не выполнен');
+                    }
+                },
+                error: function(response) {
+                    console.log(response);
+                    console.log('ппц');
+                }
+            });
+        }
+    });
+
 });
